@@ -35,9 +35,12 @@ class LeafDiseaseDataset(Dataset):
             image = self.transform(image)
         return image, label
 
-train_ds = LeafDiseaseDataset("data/raw", transform=transform)
+train_ds = LeafDiseaseDataset("data/train", transform=transform)
+val_ds = LeafDiseaseDataset("data/val", transform=transform)
+print(f"Dataset size: {len(val_ds)} samples")
 print(f"Dataset size: {len(train_ds)} samples")
 train_loader = DataLoader(train_ds, batch_size=32, shuffle=True, num_workers=0, pin_memory=False)
+val_loader = DataLoader(val_ds, batch_size=32, shuffle=True, num_workers=0, pin_memory=False)
 
 images, labels = next(iter(train_loader))
 print(images.shape, labels[:5])  
