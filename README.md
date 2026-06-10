@@ -36,7 +36,12 @@ leaf-disease-cv/
 * matplotlib
 
 ## Class Imbalance Analysis
- * Late Blight is the largest class with 1527 samples .
- * Leaf Mold is the smallest class with 761 samples .
- * Healthy contains 1273 samples .
- * Early Blight contains 800 samples .
+  Late Blight is the largest class with 1527 samples .
+
+  Leaf Mold is the smallest class with 761 samples .
+
+  Healthy contains 1273 samples.
+
+  Early Blight contains 800 samples .
+
+Observation: The dataset contains more samples for Late Blight and Healthy classes than for Early Blight and Leaf Mold, indicating a moderate level of class imbalance
