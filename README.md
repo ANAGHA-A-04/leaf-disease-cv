@@ -13,20 +13,37 @@ CUDA Available: False
 Device Name: CPU
 
 ## Project Structure
-
 leaf-disease-cv/
-
+│
 ├── data/
-
-├── src/
-
+│   ├── processed/
+│   ├── raw/
+│   ├── train/
+│   │   ├── early_blight/
+│   │   ├── healthy/
+│   │   ├── late_blight/
+│   │   └── leaf_mold/
+│   └── val/
+│       ├── early_blight/
+│       ├── healthy/
+│       ├── late_blight/
+│       └── leaf_mold/
+│
 ├── models/
-
 ├── notebooks/
-
+│
+├── src/
+│   ├── convolution.py
+│   ├── dataset.py
+│   ├── devicecheck.py
+│   └── visualize_batch.py
+│
+├── venv/
+├── .gitignore
+├── README.md
 ├── requirements.txt
-
-└── README.md
+├── sample_batch.png
+└── split.py
 
 ## Dependencies
 
