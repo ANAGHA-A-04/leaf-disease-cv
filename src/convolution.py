@@ -24,5 +24,5 @@ class LeafDiseaseCNN(nn.Module):
 model = LeafDiseaseCNN(num_classes=4)
 x = torch.randn(8, 3, 224, 224)
 logits = model(x)
-print(logits.shape)  # torch.Size([8, 4])
+print(logits.shape)  
 print(f"Parameters: {sum(p.numel() for p in model.parameters()):,}")

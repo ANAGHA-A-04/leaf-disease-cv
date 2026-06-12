@@ -1,6 +1,6 @@
 from pathlib import Path
+from sklearn.model_selection import train_test_split
 import shutil
-import random
 
 # Source dataset
 RAW_DIR = Path("data/raw")
@@ -11,14 +11,6 @@ VAL_DIR = Path("data/val")
 
 # Split ratio
 TRAIN_RATIO = 0.8
-
-
-def split_images(images, train_ratio=0.8, random_state=42):
-    images = list(images)
-    rng = random.Random(random_state)
-    rng.shuffle(images)
-    split_idx = int(len(images) * train_ratio)
-    return images[:split_idx], images[split_idx:]
 
 # Create train and val folders if they don't exist
 TRAIN_DIR.mkdir(parents=True, exist_ok=True)
@@ -34,10 +26,10 @@ for class_dir in RAW_DIR.iterdir():
     images = list(class_dir.glob("*"))
 
     # Split images into train and validation
-    train_images, val_images = split_images(
+    train_images, val_images = train_test_split(
         images,
-        train_ratio=TRAIN_RATIO,
-        random_state=42,
+        train_size=TRAIN_RATIO,
+        random_state=42
     )
 
     # Create class folders
