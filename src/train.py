@@ -6,6 +6,7 @@ from tqdm import tqdm
 from convolution import LeafDiseaseCNN
 from dataset import train_loader, val_loader
 
+
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model = LeafDiseaseCNN(num_classes=4).to(device)
 criterion = nn.CrossEntropyLoss()

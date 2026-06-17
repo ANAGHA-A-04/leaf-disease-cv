@@ -3,6 +3,7 @@ from PIL import Image
 import torch
 from torch.utils.data import Dataset, DataLoader
 from torchvision import transforms
+from aug_transform import train_transform, val_transform
 
 CLASS_NAMES = ["early_blight", "healthy", "late_blight", "leaf_mold"]
 CLASS_TO_IDX = {name: i for i, name in enumerate(CLASS_NAMES)}
@@ -35,8 +36,8 @@ class LeafDiseaseDataset(Dataset):
             image = self.transform(image)
         return image, label
 
-train_ds = LeafDiseaseDataset("data/train", transform=transform)
-val_ds = LeafDiseaseDataset("data/val", transform=transform)
+train_ds = LeafDiseaseDataset("data/train", transform=train_transform) #changed to augmented
+val_ds = LeafDiseaseDataset("data/val", transform=val_transform) #changed to augmented
 print(f"Dataset size: {len(val_ds)} samples")
 print(f"Dataset size: {len(train_ds)} samples")
 train_loader = DataLoader(train_ds, batch_size=32, shuffle=True, num_workers=0, pin_memory=False)
